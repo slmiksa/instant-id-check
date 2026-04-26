@@ -163,7 +163,7 @@ function LandingPage() {
 
       {/* Pricing */}
       <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4">
+        <div className="container mx-0 px-0">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="inline-block rounded-full bg-gold/10 border border-gold/30 px-4 py-1.5 text-xs font-bold text-gold mb-4">
               باقة الاشتراك
@@ -228,7 +228,7 @@ function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
+      <section className="py-20 mx-[34px]">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-card border border-border p-10 lg:p-16 text-center">
             <div className="absolute inset-0 bg-gradient-primary opacity-10" />
