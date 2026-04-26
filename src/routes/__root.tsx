@@ -29,19 +29,31 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "مجرّد — بوت فحص هويات موبايلي للتحصيل" },
+      {
+        name: "description",
+        content:
+          "بوت آلي لفحص هويات موبايلي لموظفي التحصيل. افحص 1000 هوية في 7 ساعات من جوالك، يعمل 24/7. اشترك الآن.",
+      },
+      { property: "og:title", content: "مجرّد — بوت فحص هويات موبايلي" },
+      {
+        property: "og:description",
+        content: "افحص 1000 هوية في 7 ساعات. يعمل من الجوال، 24 ساعة.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap",
       },
     ],
   }),
@@ -52,7 +64,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl">
       <head>
         <HeadContent />
       </head>
