@@ -125,7 +125,7 @@ function LandingPage() {
                 alt="نظام مجرّد لفحص هويات موبايلي"
                 width={1536}
                 height={1024}
-                className="relative rounded-3xl border border-border shadow-elegant"
+                className="relative rounded-3xl border border-border shadow-elegant mx-[9px]"
               />
             </div>
           </div>
