@@ -35,18 +35,22 @@ export const Route = createRootRoute({
         content:
           "بوت آلي لفحص هويات موبايلي لموظفي التحصيل. افحص 1000 هوية في 7 ساعات من جوالك، يعمل 24/7. اشترك الآن.",
       },
-      { property: "og:title", content: "مجرّد — بوت فحص هويات موبايلي" },
+      { property: "og:title", content: "مجرّد — بوت فحص هويات موبايلي للتحصيل" },
       {
         property: "og:description",
         content: "افحص 1000 هوية في 7 ساعات. يعمل من الجوال، 24 ساعة.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "مجرّد — بوت فحص هويات موبايلي للتحصيل" },
+      { name: "description", content: "ID Checker Bot is a web application for mobile ID verification, designed for collection agents." },
+      { property: "og:description", content: "ID Checker Bot is a web application for mobile ID verification, designed for collection agents." },
+      { name: "twitter:description", content: "ID Checker Bot is a web application for mobile ID verification, designed for collection agents." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8b32199a-cb29-4cfd-97a7-6007fa30ed07/id-preview-03fc59f2--e0e975fa-f2b6-4d4f-9dda-b852c19420c3.lovable.app-1777184260026.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8b32199a-cb29-4cfd-97a7-6007fa30ed07/id-preview-03fc59f2--e0e975fa-f2b6-4d4f-9dda-b852c19420c3.lovable.app-1777184260026.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
