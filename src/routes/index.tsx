@@ -148,7 +148,7 @@ function LandingPage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="group rounded-2xl bg-gradient-card border border-border p-6 hover:border-primary/50 transition-all hover:-translate-y-1"
+                className="group rounded-2xl bg-gradient-card border border-border p-6 hover:border-primary/50 transition-all hover:-translate-y-1 mx-[26px]"
               >
                 <div className="text-4xl mb-4">{f.icon}</div>
                 <h3 className="text-lg font-bold mb-2">{f.title}</h3>
