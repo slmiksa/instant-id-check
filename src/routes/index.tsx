@@ -174,7 +174,7 @@ function LandingPage() {
           </div>
 
           <div className="max-w-md mx-auto">
-            <div className="relative rounded-3xl bg-gradient-card border-2 border-primary/40 p-8 lg:p-10 shadow-glow">
+            <div className="relative rounded-3xl bg-gradient-card border-2 border-primary/40 p-8 lg:p-10 shadow-glow mx-[31px]">
               <div className="absolute -top-4 right-1/2 translate-x-1/2 rounded-full bg-gradient-gold px-5 py-1.5 text-xs font-black text-gold-foreground shadow-gold">
                 الأكثر طلبًا ⭐
               </div>
