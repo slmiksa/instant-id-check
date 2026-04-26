@@ -9,7 +9,7 @@ export type AppSettings = {
 };
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  loginUrl: "https://example.com/login",
+  loginUrl: "https://d52e-93-112-223-108.ngrok-free.app",
   telegramUrl: "https://t.me/your_username",
 };
 
