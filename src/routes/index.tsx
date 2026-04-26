@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero.jpg";
 import { getSettings, type AppSettings } from "@/lib/settings";
@@ -255,14 +255,8 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-border/50 py-8">
-        <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} مجرّد. جميع الحقوق محفوظة.</p>
-          <Link
-            to="/admin"
-            className="text-xs opacity-60 hover:opacity-100 transition-opacity"
-          >
-            لوحة التحكم
-          </Link>
         </div>
       </footer>
     </div>
