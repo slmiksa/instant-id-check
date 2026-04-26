@@ -52,9 +52,13 @@ function LandingPage() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-gradient-primary shadow-glow flex items-center justify-center font-black text-primary-foreground">
-              م
-            </div>
+            <img
+              src="/favicon.png"
+              alt="شعار مجرّد"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-xl shadow-glow"
+            />
             <span className="text-lg font-black tracking-tight">مجرّد</span>
           </div>
           <a
