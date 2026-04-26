@@ -72,7 +72,7 @@ function LandingPage() {
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-4 pt-16 pb-24 lg:pt-24 lg:pb-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-7 text-center lg:text-right">
+            <div className="space-y-7 text-center lg:text-right mx-[24px]">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary">
                 <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 النظام يعمل الآن • 24/7
