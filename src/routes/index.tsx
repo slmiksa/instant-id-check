@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero.jpg";
+import logoImg from "@/assets/logo.png";
 import { getSettings, type AppSettings } from "@/lib/settings";
 
 export const Route = createFileRoute("/")({
@@ -53,7 +54,7 @@ function LandingPage() {
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-2">
             <img
-              src="/favicon.png"
+              src={logoImg}
               alt="شعار مجرّد"
               width={36}
               height={36}
