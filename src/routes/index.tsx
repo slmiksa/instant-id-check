@@ -72,7 +72,7 @@ function LandingPage() {
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-4 pt-16 pb-24 lg:pt-24 lg:pb-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-7 text-center lg:text-right">
+            <div className="space-y-7 text-center lg:text-right mx-[24px]">
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary">
                 <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 النظام يعمل الآن • 24/7
@@ -125,7 +125,7 @@ function LandingPage() {
                 alt="نظام مجرّد لفحص هويات موبايلي"
                 width={1536}
                 height={1024}
-                className="relative rounded-3xl border border-border shadow-elegant"
+                className="relative rounded-3xl border border-border shadow-elegant mx-[9px]"
               />
             </div>
           </div>
@@ -148,7 +148,7 @@ function LandingPage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="group rounded-2xl bg-gradient-card border border-border p-6 hover:border-primary/50 transition-all hover:-translate-y-1"
+                className="group rounded-2xl bg-gradient-card border border-border p-6 hover:border-primary/50 transition-all hover:-translate-y-1 mx-[26px]"
               >
                 <div className="text-4xl mb-4">{f.icon}</div>
                 <h3 className="text-lg font-bold mb-2">{f.title}</h3>
@@ -174,7 +174,7 @@ function LandingPage() {
           </div>
 
           <div className="max-w-md mx-auto">
-            <div className="relative rounded-3xl bg-gradient-card border-2 border-primary/40 p-8 lg:p-10 shadow-glow">
+            <div className="relative rounded-3xl bg-gradient-card border-2 border-primary/40 p-8 lg:p-10 shadow-glow mx-[31px]">
               <div className="absolute -top-4 right-1/2 translate-x-1/2 rounded-full bg-gradient-gold px-5 py-1.5 text-xs font-black text-gold-foreground shadow-gold">
                 الأكثر طلبًا ⭐
               </div>
