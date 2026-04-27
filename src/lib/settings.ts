@@ -10,7 +10,7 @@ export type AppSettings = {
 
 export const DEFAULT_SETTINGS: AppSettings = {
   loginUrl: "https://related-mechanisms-viewers-fresh.trycloudflare.com",
-  telegramUrl: "https://t.me/your_username",
+  telegramUrl: "https://t.me/bot_mobily",
 };
 
 export function getSettings(): AppSettings {
