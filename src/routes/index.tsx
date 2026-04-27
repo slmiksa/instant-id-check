@@ -194,7 +194,7 @@ function LandingPage() {
               <div className="text-center mb-8">
                 <div className="flex items-baseline justify-center gap-2">
                   <span className="text-6xl font-black text-gradient-primary">
-                    200
+                    250
                   </span>
                   <span className="text-xl font-bold text-muted-foreground">
                     ريال
