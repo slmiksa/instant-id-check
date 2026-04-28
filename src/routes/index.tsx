@@ -12,7 +12,7 @@ const features = [
   {
     icon: "⚡",
     title: "سرعة فائقة",
-    desc: "فحص 1000 هوية موبايلي خلال 3 ساعات فقط — أسرع من أي طريقة يدوية.",
+    desc: "فحص حتى 4000 هوية موبايلي يوميًا — أسرع من أي طريقة يدوية.",
   },
   {
     icon: "📱",
@@ -31,13 +31,35 @@ const features = [
   },
 ];
 
-const planFeatures = [
-  "فحص غير محدود لهويات موبايلي",
-  "سرعة 1000 هوية / 3 ساعات",
-  "تشغيل من الجوال بسهولة",
-  "عمل متواصل 24 ساعة",
-  "دعم فني مباشر عبر التليجرام",
-  "تحديثات مستمرة للبوت",
+const plans = [
+  {
+    name: "الباقة الأساسية",
+    price: "250",
+    quota: "2000",
+    highlight: false,
+    features: [
+      "فحص 2000 هوية موبايلي يوميًا",
+      "تجديد العداد تلقائيًا الساعة 12 منتصف الليل",
+      "تشغيل من الجوال بسهولة",
+      "عمل متواصل 24 ساعة",
+      "دعم فني مباشر عبر التليجرام",
+      "تحديثات مستمرة للبوت",
+    ],
+  },
+  {
+    name: "الباقة الاحترافية",
+    price: "300",
+    quota: "4000",
+    highlight: true,
+    features: [
+      "فحص 4000 هوية موبايلي يوميًا",
+      "تجديد العداد تلقائيًا الساعة 12 منتصف الليل",
+      "تشغيل من الجوال بسهولة",
+      "عمل متواصل 24 ساعة",
+      "دعم فني مباشر عبر التليجرام",
+      "أولوية في الدعم الفني",
+    ],
+  },
 ];
 
 function LandingPage() {
@@ -91,7 +113,7 @@ function LandingPage() {
                 نظام آلي مصمم لموظفي التحصيل لفحص هويات موبايلي بسرعة قياسية.
                 <br />
                 <span className="text-foreground font-bold">
-                  1000 هوية كل 3 ساعات
+                  حتى 4000 هوية يوميًا
                 </span>{" "}
                 — من جوالك مباشرة.
               </p>
@@ -117,7 +139,7 @@ function LandingPage() {
               </div>
 
               <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-4 text-sm text-muted-foreground">
-                <Stat value="1000" label="هوية / 3 ساعات" />
+                <Stat value="4000" label="هوية / يوميًا" />
                 <Stat value="24/7" label="عمل متواصل" />
                 <Stat value="📱" label="من الجوال" />
               </div>
@@ -174,60 +196,96 @@ function LandingPage() {
               باقة الاشتراك
             </span>
             <h2 className="text-3xl lg:text-4xl font-black">
-              سعر <span className="text-gradient-gold">واحد</span>. كل المزايا.
+              اختر <span className="text-gradient-gold">باقتك</span> المناسبة.
             </h2>
+            <p className="text-muted-foreground mt-3">
+              العداد يتجدد تلقائيًا الساعة 12 منتصف الليل كل يوم.
+            </p>
           </div>
 
-          <div className="max-w-md mx-auto">
-            <div className="relative rounded-3xl bg-gradient-card border-2 border-primary/40 p-8 lg:p-10 shadow-glow mx-[31px]">
-              <div className="absolute -top-4 right-1/2 translate-x-1/2 rounded-full bg-gradient-gold px-5 py-1.5 text-xs font-black text-gold-foreground shadow-gold">
-                الأكثر طلبًا ⭐
-              </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto px-6">
+            {plans.map((plan) => (
+              <div
+                key={plan.name}
+                className={`relative rounded-3xl bg-gradient-card p-8 lg:p-10 transition-all hover:-translate-y-1 ${
+                  plan.highlight
+                    ? "border-2 border-gold/50 shadow-gold"
+                    : "border-2 border-primary/40 shadow-glow"
+                }`}
+              >
+                {plan.highlight && (
+                  <div className="absolute -top-4 right-1/2 translate-x-1/2 rounded-full bg-gradient-gold px-5 py-1.5 text-xs font-black text-gold-foreground shadow-gold whitespace-nowrap">
+                    الأكثر طلبًا ⭐
+                  </div>
+                )}
 
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-black mb-2">باقة العضو</h3>
-                <p className="text-sm text-muted-foreground">
-                  اشتراك شهري لكل عضو
-                </p>
-              </div>
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    اشتراك شهري لكل عضو
+                  </p>
+                </div>
 
-              <div className="text-center mb-8">
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-6xl font-black text-gradient-primary">
-                    250
-                  </span>
-                  <span className="text-xl font-bold text-muted-foreground">
-                    ريال
+                <div className="text-center mb-6">
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span
+                      className={`text-6xl font-black ${
+                        plan.highlight
+                          ? "text-gradient-gold"
+                          : "text-gradient-primary"
+                      }`}
+                    >
+                      {plan.price}
+                    </span>
+                    <span className="text-xl font-bold text-muted-foreground">
+                      ريال
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">/ شهريًا</p>
+                </div>
+
+                <div className="text-center mb-6">
+                  <span className="inline-block rounded-full bg-primary/10 border border-primary/30 px-4 py-1.5 text-sm font-bold text-primary">
+                    {plan.quota} هوية / يوميًا
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">/ شهريًا</p>
+
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm">
+                      <span
+                        className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                          plan.highlight
+                            ? "bg-gold/20 text-gold"
+                            : "bg-primary/20 text-primary"
+                        }`}
+                      >
+                        ✓
+                      </span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={settings.telegramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-center gap-2 w-full rounded-full py-4 text-base font-black transition-transform hover:scale-[1.02] ${
+                    plan.highlight
+                      ? "bg-gradient-gold text-gold-foreground shadow-gold"
+                      : "bg-gradient-primary text-primary-foreground shadow-glow"
+                  }`}
+                >
+                  <TelegramIcon className="h-5 w-5" />
+                  اشترك الآن
+                </a>
+
+                <p className="text-center text-xs text-muted-foreground mt-4">
+                  التواصل والاشتراك مباشرة عبر التليجرام
+                </p>
               </div>
-
-              <ul className="space-y-3 mb-8">
-                {planFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-                      ✓
-                    </span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={settings.telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full rounded-full bg-gradient-primary py-4 text-base font-black text-primary-foreground shadow-glow hover:scale-[1.02] transition-transform"
-              >
-                <TelegramIcon className="h-5 w-5" />
-                اشترك الآن عبر التليجرام
-              </a>
-
-              <p className="text-center text-xs text-muted-foreground mt-4">
-                التواصل والاشتراك يتم مباشرة عبر التليجرام
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
