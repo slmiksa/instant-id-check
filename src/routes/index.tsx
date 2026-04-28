@@ -49,7 +49,7 @@ const plans = [
   },
   {
     name: "الباقة الاحترافية",
-    price: "300",
+    price: "350",
     quota: "4000",
     highlight: true,
     features: [
