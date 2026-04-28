@@ -128,7 +128,7 @@ function LandingPage() {
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-base font-black text-primary-foreground shadow-glow animate-pulse-glow hover:scale-[1.02] transition-transform"
                 >
                   <TelegramIcon className="h-5 w-5" />
-                  اشترك عبر التليجرام
+                  تواصل معنا للاشتراك
                 </a>
                 <a
                   href={settings.loginUrl}
@@ -284,7 +284,7 @@ function LandingPage() {
                 </a>
 
                 <p className="text-center text-xs text-muted-foreground mt-4">
-                  التواصل والاشتراك مباشرة عبر التليجرام
+                  للاشتراك تواصل مع فريق المبيعات مباشرة
                 </p>
               </div>
             ))}
