@@ -29,20 +29,20 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "مجرّد — بوت فحص هويات موبايلي للتحصيل" },
+      { title: "مجرّد — نظام فحص هويات موبايلي للتحصيل" },
       {
         name: "description",
         content:
-          "بوت آلي لفحص هويات موبايلي لموظفي التحصيل. افحص 1000 هوية في 7 ساعات من جوالك، يعمل 24/7. اشترك الآن.",
+          "نظام آلي لفحص هويات موبايلي لموظفي التحصيل. افحص 1000 هوية في 7 ساعات من جوالك، يعمل 24/7. اشترك الآن.",
       },
-      { property: "og:title", content: "مجرّد — بوت فحص هويات موبايلي للتحصيل" },
+      { property: "og:title", content: "مجرّد — نظام فحص هويات موبايلي للتحصيل" },
       {
         property: "og:description",
         content: "افحص 1000 هوية في 7 ساعات. يعمل من الجوال، 24 ساعة.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "مجرّد — بوت فحص هويات موبايلي للتحصيل" },
+      { name: "twitter:title", content: "مجرّد — نظام فحص هويات موبايلي للتحصيل" },
       { name: "description", content: "ID Checker Bot is a web application for mobile ID verification, designed for collection agents." },
       { property: "og:description", content: "ID Checker Bot is a web application for mobile ID verification, designed for collection agents." },
       { name: "twitter:description", content: "ID Checker Bot is a web application for mobile ID verification, designed for collection agents." },
