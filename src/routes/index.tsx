@@ -280,7 +280,7 @@ function LandingPage() {
                   }`}
                 >
                   <TelegramIcon className="h-5 w-5" />
-                  اشترك الآن
+                  تواصل معنا للاشتراك
                 </a>
 
                 <p className="text-center text-xs text-muted-foreground mt-4">
@@ -311,7 +311,7 @@ function LandingPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-10 py-4 text-base font-black text-primary-foreground shadow-glow"
               >
                 <TelegramIcon className="h-5 w-5" />
-                ابدأ الاشتراك
+                تواصل مع فريق المبيعات
               </a>
             </div>
           </div>
