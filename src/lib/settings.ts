@@ -9,7 +9,7 @@ export type AppSettings = {
 };
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  loginUrl: "https://related-mechanisms-viewers-fresh.trycloudflare.com",
+  loginUrl: "https://difference-reload-sonic-uni.trycloudflare.com",
   telegramUrl: "https://t.me/bot_mobily",
 };
 
