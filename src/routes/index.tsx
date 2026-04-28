@@ -113,7 +113,7 @@ function LandingPage() {
                 نظام آلي مصمم لموظفي التحصيل لفحص هويات موبايلي بسرعة قياسية.
                 <br />
                 <span className="text-foreground font-bold">
-                  1000 هوية كل 3 ساعات
+                  حتى 4000 هوية يوميًا
                 </span>{" "}
                 — من جوالك مباشرة.
               </p>
