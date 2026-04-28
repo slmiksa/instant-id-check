@@ -12,7 +12,7 @@ const features = [
   {
     icon: "⚡",
     title: "سرعة فائقة",
-    desc: "فحص 1000 هوية موبايلي خلال 7 ساعات فقط — أسرع من أي طريقة يدوية.",
+    desc: "فحص 1000 هوية موبايلي خلال 3 ساعات فقط — أسرع من أي طريقة يدوية.",
   },
   {
     icon: "📱",
@@ -33,7 +33,7 @@ const features = [
 
 const planFeatures = [
   "فحص غير محدود لهويات موبايلي",
-  "سرعة 1000 هوية / 7 ساعات",
+  "سرعة 1000 هوية / 3 ساعات",
   "تشغيل من الجوال بسهولة",
   "عمل متواصل 24 ساعة",
   "دعم فني مباشر عبر التليجرام",
@@ -91,7 +91,7 @@ function LandingPage() {
                 نظام آلي مصمم لموظفي التحصيل لفحص هويات موبايلي بسرعة قياسية.
                 <br />
                 <span className="text-foreground font-bold">
-                  1000 هوية كل 7 ساعات
+                  1000 هوية كل 3 ساعات
                 </span>{" "}
                 — من جوالك مباشرة.
               </p>
@@ -117,7 +117,7 @@ function LandingPage() {
               </div>
 
               <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-4 text-sm text-muted-foreground">
-                <Stat value="1000" label="هوية / 7 ساعات" />
+                <Stat value="1000" label="هوية / 3 ساعات" />
                 <Stat value="24/7" label="عمل متواصل" />
                 <Stat value="📱" label="من الجوال" />
               </div>
