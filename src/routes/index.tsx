@@ -66,10 +66,22 @@ const plans = [
 
 function LandingPage() {
   const [settings, setSettings] = useState<AppSettings>(() => getSettings());
+  const [serverMenuOpen, setServerMenuOpen] = useState(false);
+  const [heroServerMenuOpen, setHeroServerMenuOpen] = useState(false);
 
   useEffect(() => {
     setSettings(getSettings());
   }, []);
+
+  useEffect(() => {
+    if (!serverMenuOpen && !heroServerMenuOpen) return;
+    const close = () => {
+      setServerMenuOpen(false);
+      setHeroServerMenuOpen(false);
+    };
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
+  }, [serverMenuOpen, heroServerMenuOpen]);
 
   return (
     <div className="min-h-screen text-foreground">
@@ -86,14 +98,35 @@ function LandingPage() {
             />
             <span className="text-lg font-black tracking-tight">مجرّد</span>
           </div>
-          <a
-            href={settings.loginUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-bold text-primary hover:bg-primary/20 transition-colors"
-          >
-            دخول النظام ←
-          </a>
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setServerMenuOpen((v) => !v)}
+              className="rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-bold text-primary hover:bg-primary/20 transition-colors"
+            >
+              دخول النظام ←
+            </button>
+            {serverMenuOpen && (
+              <div className="absolute left-0 mt-2 w-56 rounded-2xl border border-border bg-card shadow-elegant overflow-hidden z-50">
+                <a
+                  href={settings.loginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
+                >
+                  <span>سيرفر 1</span>
+                  <span className="inline-flex items-center gap-1 text-xs text-primary">
+                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    نشط
+                  </span>
+                </a>
+                <div className="border-t border-border/50" />
+                <div className="flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
+                  <span>سيرفر 2</span>
+                  <span className="text-xs">قريباً</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -130,14 +163,36 @@ function LandingPage() {
                   <TelegramIcon className="h-5 w-5" />
                   تواصل معنا للاشتراك
                 </a>
-                <a
-                  href={settings.loginUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-8 py-4 text-base font-bold text-foreground hover:bg-accent transition-colors"
-                >
-                  دخول النظام
-                </a>
+                <div className="relative" onClick={(e) => e.stopPropagation()}>
+                  <button
+                    onClick={() => setHeroServerMenuOpen((v) => !v)}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-8 py-4 text-base font-bold text-foreground hover:bg-accent transition-colors w-full sm:w-auto"
+                  >
+                    دخول النظام
+                    <span className="text-xs opacity-70">▾</span>
+                  </button>
+                  {heroServerMenuOpen && (
+                    <div className="absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 mt-2 w-60 rounded-2xl border border-border bg-card shadow-elegant overflow-hidden z-50 text-right">
+                      <a
+                        href={settings.loginUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
+                      >
+                        <span>سيرفر 1</span>
+                        <span className="inline-flex items-center gap-1 text-xs text-primary">
+                          <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                          نشط
+                        </span>
+                      </a>
+                      <div className="border-t border-border/50" />
+                      <div className="flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
+                        <span>سيرفر 2</span>
+                        <span className="text-xs">قريباً</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-4 text-sm text-muted-foreground">
