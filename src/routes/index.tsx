@@ -106,7 +106,7 @@ function LandingPage() {
               دخول النظام ←
             </button>
             {serverMenuOpen && (
-              <div className="absolute left-0 mt-2 w-56 rounded-2xl border border-border bg-card shadow-elegant overflow-hidden z-50">
+              <div className="absolute end-0 mt-2 w-56 rounded-2xl border border-border bg-card shadow-elegant overflow-hidden z-[60]">
                 <a
                   href={settings.loginUrl}
                   target="_blank"
