@@ -6,11 +6,13 @@ const STORAGE_KEY = "mojarrad_settings_v1";
 export type AppSettings = {
   loginUrl: string;
   telegramUrl: string;
+  whatsappUrl: string;
 };
 
 export const DEFAULT_SETTINGS: AppSettings = {
   loginUrl: "https://difference-reload-sonic-uni.trycloudflare.com",
-  telegramUrl: "https://t.me/bot_mobily",
+  telegramUrl: "https://wa.me/966575503461",
+  whatsappUrl: "https://wa.me/966575503461",
 };
 
 export function getSettings(): AppSettings {
