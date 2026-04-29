@@ -66,10 +66,22 @@ const plans = [
 
 function LandingPage() {
   const [settings, setSettings] = useState<AppSettings>(() => getSettings());
+  const [serverMenuOpen, setServerMenuOpen] = useState(false);
+  const [heroServerMenuOpen, setHeroServerMenuOpen] = useState(false);
 
   useEffect(() => {
     setSettings(getSettings());
   }, []);
+
+  useEffect(() => {
+    if (!serverMenuOpen && !heroServerMenuOpen) return;
+    const close = () => {
+      setServerMenuOpen(false);
+      setHeroServerMenuOpen(false);
+    };
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
+  }, [serverMenuOpen, heroServerMenuOpen]);
 
   return (
     <div className="min-h-screen text-foreground">
