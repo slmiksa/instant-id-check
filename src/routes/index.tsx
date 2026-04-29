@@ -196,7 +196,7 @@ function LandingPage() {
               </div>
 
               <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-4 text-sm text-muted-foreground">
-                <Stat value="4000" label="هوية / يوميًا" />
+                <Stat value="2500" label="هوية / يوميًا" />
                 <Stat value="24/7" label="عمل متواصل" />
                 <Stat value="📱" label="من الجوال" />
               </div>
