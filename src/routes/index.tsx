@@ -98,14 +98,35 @@ function LandingPage() {
             />
             <span className="text-lg font-black tracking-tight">مجرّد</span>
           </div>
-          <a
-            href={settings.loginUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-bold text-primary hover:bg-primary/20 transition-colors"
-          >
-            دخول النظام ←
-          </a>
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setServerMenuOpen((v) => !v)}
+              className="rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-bold text-primary hover:bg-primary/20 transition-colors"
+            >
+              دخول النظام ←
+            </button>
+            {serverMenuOpen && (
+              <div className="absolute left-0 mt-2 w-56 rounded-2xl border border-border bg-card shadow-elegant overflow-hidden z-50">
+                <a
+                  href={settings.loginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
+                >
+                  <span>سيرفر 1</span>
+                  <span className="inline-flex items-center gap-1 text-xs text-primary">
+                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    نشط
+                  </span>
+                </a>
+                <div className="border-t border-border/50" />
+                <div className="flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
+                  <span>سيرفر 2</span>
+                  <span className="text-xs">قريباً</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
