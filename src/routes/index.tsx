@@ -79,6 +79,17 @@ function LandingPage() {
   const [settings, setSettings] = useState<AppSettings>(() => getSettings());
   const [serverMenuOpen, setServerMenuOpen] = useState(false);
   const [heroServerMenuOpen, setHeroServerMenuOpen] = useState(false);
+  const [billingIdx, setBillingIdx] = useState<Record<string, number>>({});
+
+  const buildWaUrl = (baseUrl: string, message: string) => {
+    try {
+      const u = new URL(baseUrl);
+      u.searchParams.set("text", message);
+      return u.toString();
+    } catch {
+      return `${baseUrl}?text=${encodeURIComponent(message)}`;
+    }
+  };
 
   useEffect(() => {
     setSettings(getSettings());
