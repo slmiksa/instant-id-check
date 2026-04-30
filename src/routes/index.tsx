@@ -37,6 +37,10 @@ const plans = [
     price: "250",
     quota: "150",
     highlight: false,
+    billingOptions: [
+      { label: "شهري", price: "250", suffix: "/ شهريًا" },
+    ],
+    waMessage: "السلام عليكم، أرغب بالاشتراك في الباقة الأساسية (250 ريال / شهريًا) — فحص 150 هوية موبايلي يوميًا.",
     features: [
       "فحص 150 هوية موبايلي يوميًا",
       "كل 1000 فحص يستغرق 4 ساعات",
@@ -52,6 +56,12 @@ const plans = [
     price: "1000",
     quota: "6000",
     highlight: true,
+    billingOptions: [
+      { label: "شهري", price: "1000", suffix: "/ شهريًا" },
+      { label: "6 أشهر", price: "6000", suffix: "/ 6 أشهر" },
+      { label: "سنوي", price: "12000", suffix: "/ سنويًا" },
+    ],
+    waMessage: "السلام عليكم، أرغب بالاشتراك في الباقة الاحترافية — فحص 6000 هوية موبايلي يوميًا. يرجى تزويدي بتفاصيل الاشتراك (شهري / 6 أشهر / سنوي).",
     features: [
       "فحص 6000 هوية موبايلي يوميًا",
       "كل 1000 فحص يستغرق 4 ساعات",
@@ -69,6 +79,17 @@ function LandingPage() {
   const [settings, setSettings] = useState<AppSettings>(() => getSettings());
   const [serverMenuOpen, setServerMenuOpen] = useState(false);
   const [heroServerMenuOpen, setHeroServerMenuOpen] = useState(false);
+  const [billingIdx, setBillingIdx] = useState<Record<string, number>>({});
+
+  const buildWaUrl = (baseUrl: string, message: string) => {
+    try {
+      const u = new URL(baseUrl);
+      u.searchParams.set("text", message);
+      return u.toString();
+    } catch {
+      return `${baseUrl}?text=${encodeURIComponent(message)}`;
+    }
+  };
 
   useEffect(() => {
     setSettings(getSettings());
@@ -262,7 +283,11 @@ function LandingPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto px-6">
-            {plans.map((plan) => (
+            {plans.map((plan) => {
+              const selectedIdx = billingIdx[plan.name] ?? 0;
+              const selected = plan.billingOptions[selectedIdx] ?? plan.billingOptions[0];
+              const waHref = buildWaUrl(settings.telegramUrl, plan.waMessage);
+              return (
               <div
                 key={plan.name}
                 className={`relative rounded-3xl bg-gradient-card p-8 lg:p-10 transition-all hover:-translate-y-1 ${
@@ -280,9 +305,34 @@ function LandingPage() {
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
                   <p className="text-sm text-muted-foreground">
-                    اشتراك شهري لكل عضو
+                    اشتراك مرن لكل عضو
                   </p>
                 </div>
+
+                {plan.billingOptions.length > 1 && (
+                  <div className="flex items-center justify-center gap-1 mb-5 rounded-full border border-border bg-background/40 p-1">
+                    {plan.billingOptions.map((opt, i) => {
+                      const active = i === selectedIdx;
+                      return (
+                        <button
+                          key={opt.label}
+                          onClick={() =>
+                            setBillingIdx((prev) => ({ ...prev, [plan.name]: i }))
+                          }
+                          className={`flex-1 rounded-full px-3 py-1.5 text-xs font-bold transition-colors ${
+                            active
+                              ? plan.highlight
+                                ? "bg-gradient-gold text-gold-foreground shadow-gold"
+                                : "bg-gradient-primary text-primary-foreground shadow-glow"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
 
                 <div className="text-center mb-6">
                   <div className="flex items-baseline justify-center gap-2">
@@ -293,13 +343,13 @@ function LandingPage() {
                           : "text-gradient-primary"
                       }`}
                     >
-                      {plan.price}
+                      {selected.price}
                     </span>
                     <span className="text-xl font-bold text-muted-foreground">
                       ريال
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">/ شهريًا</p>
+                  <p className="text-sm text-muted-foreground mt-2">{selected.suffix}</p>
                 </div>
 
                 <div className="text-center mb-6">
@@ -326,7 +376,7 @@ function LandingPage() {
                 </ul>
 
                 <a
-                  href={settings.telegramUrl}
+                  href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center justify-center gap-2 w-full rounded-full py-4 text-base font-black transition-transform hover:scale-[1.02] ${
@@ -343,7 +393,8 @@ function LandingPage() {
                   للاشتراك تواصل مع فريق المبيعات مباشرة
                 </p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
