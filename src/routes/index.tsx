@@ -297,7 +297,8 @@ function LandingPage() {
             {plans.map((plan) => {
               const selectedIdx = billingIdx[plan.name] ?? 0;
               const selected = plan.billingOptions[selectedIdx] ?? plan.billingOptions[0];
-              const waHref = buildWaUrl(settings.telegramUrl, selected.waMessage ?? plan.waMessage);
+              const selectedWaMessage = (selected as { waMessage?: string }).waMessage ?? plan.waMessage;
+              const waHref = buildWaUrl(settings.telegramUrl, selectedWaMessage);
               return (
               <div
                 key={plan.name}
