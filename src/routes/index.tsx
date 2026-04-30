@@ -57,7 +57,6 @@ const plans = [
     quota: "6000",
     highlight: true,
     billingOptions: [
-      { label: "شهري", price: "1000", suffix: "/ شهريًا" },
       { label: "6 أشهر", price: "6000", suffix: "/ 6 أشهر" },
       { label: "سنوي", price: "12000", suffix: "/ سنويًا" },
     ],
