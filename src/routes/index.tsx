@@ -441,7 +441,17 @@ function LandingPage() {
       <footer className="border-t border-border/50 py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} مجرّد. جميع الحقوق محفوظة.</p>
-          <p className="mt-2 font-bold text-foreground">برمجة وتطوير TRNDSKY</p>
+          <p className="mt-2 font-bold text-foreground">
+            برمجة وتطوير{" "}
+            <a
+              href="https://trndsky.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              TRNDSKY
+            </a>
+          </p>
         </div>
       </footer>
     </div>
