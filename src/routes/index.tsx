@@ -121,15 +121,15 @@ function LandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <img
               src={logoImg}
               alt="شعار مجرّد"
-              width={36}
-              height={36}
-              className="h-9 w-9 rounded-xl shadow-glow"
+              width={64}
+              height={64}
+              className="h-16 w-16 rounded-2xl shadow-glow object-cover"
             />
-            <span className="text-lg font-black tracking-tight">مجرّد</span>
+            <span className="text-xl font-black tracking-tight">مجرّد</span>
           </div>
           <div className="relative" onClick={(e) => e.stopPropagation()}>
             <button
