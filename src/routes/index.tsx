@@ -404,6 +404,12 @@ function LandingPage() {
                 <p className="text-center text-xs text-muted-foreground mt-4">
                   للاشتراك تواصل مع فريق المبيعات مباشرة
                 </p>
+
+                <div className="mt-4 rounded-2xl border border-gold/30 bg-gold/5 px-4 py-3 text-center">
+                  <p className="text-xs font-bold text-gold">
+                    💡 ملاحظة: عند طلب زيادة عدد الفحص، كل 100 فحص إضافي بـ 25 ريال
+                  </p>
+                </div>
               </div>
               );
             })}
