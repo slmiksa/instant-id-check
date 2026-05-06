@@ -419,6 +419,77 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 lg:py-28">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block rounded-full bg-primary/10 border border-primary/30 px-4 py-1.5 text-xs font-bold text-primary mb-4">
+              آراء العملاء
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-black">
+              موظفو التحصيل <span className="text-gradient-primary">يثقون بمجرّد</span>
+            </h2>
+            <p className="text-muted-foreground mt-3">
+              تجارب حقيقية من موظفين سهّل عليهم النظام التحصيل وجمع الفواتير المسددة.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto px-2">
+            {[
+              {
+                name: "عبدالعزيز القحطاني",
+                role: "موظف تحصيل",
+                text: "والله نظام مجرّد وفّر علي ساعات يومياً، صرت أفحص آلاف الهويات وأنا في السيارة. الفواتير المسددة تتجمّع عندي بسرعة وبدون عناء.",
+              },
+              {
+                name: "فهد الشمري",
+                role: "مشرف تحصيل",
+                text: "قبل النظام كنا نضيع وقت كبير في الفحص اليدوي. الحين فريقي يخلّص شغل يوم كامل في ساعتين. أنصح فيه أي شركة تحصيل.",
+              },
+              {
+                name: "سلطان العتيبي",
+                role: "موظف تحصيل ميداني",
+                text: "أسهل أداة جربتها في حياتي المهنية. أشغّله من جوالي وأنا برّا وأرجع ألقى النتائج جاهزة. زاد إنتاجي أكثر من الضعف.",
+              },
+              {
+                name: "ماجد الدوسري",
+                role: "محصّل ديون",
+                text: "اللي عجبني إنه يشتغل 24 ساعة بدون توقف. أنام وأصحى ألقى الفواتير المحصّلة جاهزة. توفير وقت ومجهود بشكل خرافي.",
+              },
+              {
+                name: "ناصر الحربي",
+                role: "موظف تحصيل",
+                text: "الدعم الفني سريع والنظام ثابت ما يفصل. صار عندي وقت أركّز على المتابعة بدل ما أضيعه في الفحص. شكراً مجرّد.",
+              },
+              {
+                name: "تركي المطيري",
+                role: "مدير قسم التحصيل",
+                text: "اشتركنا في الباقة الاحترافية وفعلاً نقلت الشركة لمستوى ثاني. كل الموظفين عندنا يعتمدون عليه يومياً.",
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="rounded-2xl bg-gradient-card border border-border p-6 hover:border-primary/50 transition-all"
+              >
+                <div className="flex text-gold mb-3 text-lg">★★★★★</div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                  "{t.text}"
+                </p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border/50">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground font-black">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 mx-[34px]">
         <div className="container mx-auto px-4">
