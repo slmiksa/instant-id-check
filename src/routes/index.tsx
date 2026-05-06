@@ -427,7 +427,7 @@ function LandingPage() {
               آراء العملاء
             </span>
             <h2 className="text-3xl lg:text-4xl font-black">
-              موظفو التحصيل <span className="text-gradient-primary">يثقون بمجرّد</span>
+              موظفو التحصيل <span className="text-gradient-primary inline-block leading-[1.6] pb-2">يثقون بمجرّد</span>
             </h2>
             <p className="text-muted-foreground mt-3">
               تجارب حقيقية من موظفين سهّل عليهم النظام التحصيل وجمع الفواتير المسددة.
