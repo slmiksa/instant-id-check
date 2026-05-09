@@ -153,10 +153,14 @@ function LandingPage() {
                   </span>
                 </a>
                 <div className="border-t border-border/50" />
-                <div className="flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
+                <button
+                  type="button"
+                  onClick={() => alert("يتم تجهيزه")}
+                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
+                >
                   <span>سيرفر 2</span>
-                  <span className="text-xs">قريباً</span>
-                </div>
+                  <span className="text-xs">يتم تجهيزه</span>
+                </button>
               </div>
             )}
           </div>
@@ -219,10 +223,14 @@ function LandingPage() {
                         </span>
                       </a>
                       <div className="border-t border-border/50" />
-                      <div className="flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
+                      <button
+                        type="button"
+                        onClick={() => alert("يتم تجهيزه")}
+                        className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
+                      >
                         <span>سيرفر 2</span>
-                        <span className="text-xs">قريباً</span>
-                      </div>
+                        <span className="text-xs">يتم تجهيزه</span>
+                      </button>
                     </div>
                   )}
                 </div>
