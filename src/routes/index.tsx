@@ -319,7 +319,13 @@ function LandingPage() {
             {plans.map((plan) => {
               const selectedIdx = billingIdx[plan.name] ?? 0;
               const selected = plan.billingOptions[selectedIdx] ?? plan.billingOptions[0];
-              const selectedWaMessage = (selected as { waMessage?: string }).waMessage ?? plan.waMessage;
+              const baseWaMessage = (selected as { waMessage?: string }).waMessage ?? plan.waMessage;
+              const status = promoStatus[plan.name] ?? "";
+              const promoCode = normalize(promoInput[plan.name] ?? "");
+              const promoApplied = status === "valid";
+              const selectedWaMessage = promoApplied
+                ? `${baseWaMessage} + شهر مجاني (كود الخصم: ${promoCode})`
+                : baseWaMessage;
               const waHref = buildWaUrl(settings.telegramUrl, selectedWaMessage);
               return (
               <div
