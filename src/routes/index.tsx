@@ -415,6 +415,52 @@ function LandingPage() {
                   ))}
                 </ul>
 
+                <div className="mb-4">
+                  <label className="block text-xs font-bold text-muted-foreground mb-2 text-right">
+                    كود الخصم (اختياري)
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={promoInput[plan.name] ?? ""}
+                      onChange={(e) => {
+                        const v = e.target.value;
+                        setPromoInput((p) => ({ ...p, [plan.name]: v }));
+                        setPromoStatus((p) => ({ ...p, [plan.name]: "" }));
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          applyPromo(plan.name);
+                        }
+                      }}
+                      placeholder="أدخل كود الخصم"
+                      className="flex-1 rounded-full border border-border bg-background/40 px-4 py-2 text-sm text-right outline-none focus:border-primary"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => applyPromo(plan.name)}
+                      className={`rounded-full px-4 py-2 text-xs font-bold transition-transform hover:scale-[1.02] ${
+                        plan.highlight
+                          ? "bg-gradient-gold text-gold-foreground shadow-gold"
+                          : "bg-gradient-primary text-primary-foreground shadow-glow"
+                      }`}
+                    >
+                      تطبيق
+                    </button>
+                  </div>
+                  {status === "valid" && (
+                    <p className="mt-2 text-xs font-bold text-gold text-right">
+                      ✓ تم إضافة شهر مجاني
+                    </p>
+                  )}
+                  {status === "invalid" && (
+                    <p className="mt-2 text-xs font-bold text-destructive text-right">
+                      الكود خاطئ
+                    </p>
+                  )}
+                </div>
+
                 <a
                   href={waHref}
                   target="_blank"
@@ -426,7 +472,7 @@ function LandingPage() {
                   }`}
                 >
                   <TelegramIcon className="h-5 w-5" />
-                  تواصل معنا للاشتراك
+                  تواصل معنا للاشتراك{promoApplied ? " + شهر مجاني" : ""}
                 </a>
 
                 <p className="text-center text-xs text-muted-foreground mt-4">
