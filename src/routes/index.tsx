@@ -477,7 +477,7 @@ function LandingPage() {
                     تواصل معنا للاشتراك
                   </span>
                   {promoApplied && (
-                    <span className="whitespace-nowrap">+ شهر مجاني</span>
+                    <span className="whitespace-nowrap">+ {bonusLabel}</span>
                   )}
                 </a>
 
