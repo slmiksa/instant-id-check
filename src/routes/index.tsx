@@ -323,8 +323,9 @@ function LandingPage() {
               const status = promoStatus[plan.name] ?? "";
               const promoCode = normalize(promoInput[plan.name] ?? "");
               const promoApplied = status === "valid";
+              const bonusLabel = plan.name === "الباقة الأساسية" ? "10 أيام مجانية" : "شهر مجاني";
               const selectedWaMessage = promoApplied
-                ? `${baseWaMessage} + شهر مجاني (كود الخصم: ${promoCode})`
+                ? `${baseWaMessage} + ${bonusLabel} (كود الخصم: ${promoCode})`
                 : baseWaMessage;
               const waHref = buildWaUrl(settings.telegramUrl, selectedWaMessage);
               return (
@@ -451,7 +452,7 @@ function LandingPage() {
                   </div>
                   {status === "valid" && (
                     <p className="mt-2 text-xs font-bold text-gold text-right">
-                      ✓ تم إضافة شهر مجاني
+                      ✓ تم إضافة {bonusLabel}
                     </p>
                   )}
                   {status === "invalid" && (
@@ -476,7 +477,7 @@ function LandingPage() {
                     تواصل معنا للاشتراك
                   </span>
                   {promoApplied && (
-                    <span className="whitespace-nowrap">+ شهر مجاني</span>
+                    <span className="whitespace-nowrap">+ {bonusLabel}</span>
                   )}
                 </a>
 
