@@ -325,7 +325,7 @@ function LandingPage() {
               const promoApplied = status === "valid";
               const bonusLabel =
                 plan.name === "الباقة الأساسية"
-                  ? "10 أيام مجانية"
+                  ? "5 أيام مجانية"
                   : selected.label === "6 أشهر"
                     ? "15 يوم مجاني"
                     : "شهر مجاني";
