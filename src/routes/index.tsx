@@ -452,7 +452,7 @@ function LandingPage() {
                   </div>
                   {status === "valid" && (
                     <p className="mt-2 text-xs font-bold text-gold text-right">
-                      ✓ تم إضافة شهر مجاني
+                      ✓ تم إضافة {bonusLabel}
                     </p>
                   )}
                   {status === "invalid" && (
