@@ -91,6 +91,20 @@ function LandingPage() {
   const [serverMenuOpen, setServerMenuOpen] = useState(false);
   const [heroServerMenuOpen, setHeroServerMenuOpen] = useState(false);
   const [billingIdx, setBillingIdx] = useState<Record<string, number>>({});
+  const [promoInput, setPromoInput] = useState<Record<string, string>>({});
+  const [promoStatus, setPromoStatus] = useState<Record<string, "valid" | "invalid" | "">>({});
+
+  const VALID_PROMOS = ["فهد", "محمد"];
+  const normalize = (s: string) => s.trim().replace(/\s+/g, "");
+  const applyPromo = (planName: string) => {
+    const code = normalize(promoInput[planName] ?? "");
+    if (!code) {
+      setPromoStatus((p) => ({ ...p, [planName]: "" }));
+      return;
+    }
+    const ok = VALID_PROMOS.includes(code);
+    setPromoStatus((p) => ({ ...p, [planName]: ok ? "valid" : "invalid" }));
+  };
 
   const buildWaUrl = (baseUrl: string, message: string) => {
     try {
