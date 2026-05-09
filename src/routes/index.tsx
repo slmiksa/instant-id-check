@@ -167,14 +167,18 @@ function LandingPage() {
                   </span>
                 </a>
                 <div className="border-t border-border/50" />
-                <button
-                  type="button"
-                  onClick={() => alert("يتم تجهيزه")}
-                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
+                <a
+                  href={settings.loginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
                 >
                   <span>سيرفر شركة تحصيل 1</span>
-                  <span className="text-xs">يتم تجهيزه</span>
-                </button>
+                  <span className="inline-flex items-center gap-1 text-xs text-primary">
+                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    نشط
+                  </span>
+                </a>
                 <div className="border-t border-border/50" />
                 <button
                   type="button"
