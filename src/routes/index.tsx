@@ -465,14 +465,19 @@ function LandingPage() {
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 w-full rounded-full py-4 text-base font-black transition-transform hover:scale-[1.02] ${
+                  className={`flex flex-wrap items-center justify-center gap-x-2 gap-y-1 w-full rounded-full px-4 py-4 text-sm sm:text-base font-black leading-tight transition-transform hover:scale-[1.02] ${
                     plan.highlight
                       ? "bg-gradient-gold text-gold-foreground shadow-gold"
                       : "bg-gradient-primary text-primary-foreground shadow-glow"
                   }`}
                 >
-                  <TelegramIcon className="h-5 w-5" />
-                  تواصل معنا للاشتراك{promoApplied ? " + شهر مجاني" : ""}
+                  <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                    <TelegramIcon className="h-5 w-5 shrink-0" />
+                    تواصل معنا للاشتراك
+                  </span>
+                  {promoApplied && (
+                    <span className="whitespace-nowrap">+ شهر مجاني</span>
+                  )}
                 </a>
 
                 <p className="text-center text-xs text-muted-foreground mt-4">
