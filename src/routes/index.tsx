@@ -160,7 +160,7 @@ function LandingPage() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
                 >
-                  <span>سيرفر 1</span>
+                  <span>سيرفر عام</span>
                   <span className="inline-flex items-center gap-1 text-xs text-primary">
                     <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                     نشط
@@ -172,7 +172,16 @@ function LandingPage() {
                   onClick={() => alert("يتم تجهيزه")}
                   className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
                 >
-                  <span>سيرفر 2</span>
+                  <span>سيرفر شركة تحصيل 1</span>
+                  <span className="text-xs">يتم تجهيزه</span>
+                </button>
+                <div className="border-t border-border/50" />
+                <button
+                  type="button"
+                  onClick={() => alert("يتم تجهيزه")}
+                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
+                >
+                  <span>سيرفر شركة تحصيل 2</span>
                   <span className="text-xs">يتم تجهيزه</span>
                 </button>
               </div>
@@ -230,7 +239,7 @@ function LandingPage() {
                         rel="noopener noreferrer"
                         className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
                       >
-                        <span>سيرفر 1</span>
+                        <span>سيرفر عام</span>
                         <span className="inline-flex items-center gap-1 text-xs text-primary">
                           <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                           نشط
@@ -242,7 +251,16 @@ function LandingPage() {
                         onClick={() => alert("يتم تجهيزه")}
                         className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
                       >
-                        <span>سيرفر 2</span>
+                        <span>سيرفر شركة تحصيل 1</span>
+                        <span className="text-xs">يتم تجهيزه</span>
+                      </button>
+                      <div className="border-t border-border/50" />
+                      <button
+                        type="button"
+                        onClick={() => alert("يتم تجهيزه")}
+                        className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold text-muted-foreground hover:bg-accent transition-colors text-right"
+                      >
+                        <span>سيرفر شركة تحصيل 2</span>
                         <span className="text-xs">يتم تجهيزه</span>
                       </button>
                     </div>
