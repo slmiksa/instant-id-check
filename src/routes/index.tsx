@@ -91,6 +91,20 @@ function LandingPage() {
   const [serverMenuOpen, setServerMenuOpen] = useState(false);
   const [heroServerMenuOpen, setHeroServerMenuOpen] = useState(false);
   const [billingIdx, setBillingIdx] = useState<Record<string, number>>({});
+  const [promoInput, setPromoInput] = useState<Record<string, string>>({});
+  const [promoStatus, setPromoStatus] = useState<Record<string, "valid" | "invalid" | "">>({});
+
+  const VALID_PROMOS = ["فهد", "محمد"];
+  const normalize = (s: string) => s.trim().replace(/\s+/g, "");
+  const applyPromo = (planName: string) => {
+    const code = normalize(promoInput[planName] ?? "");
+    if (!code) {
+      setPromoStatus((p) => ({ ...p, [planName]: "" }));
+      return;
+    }
+    const ok = VALID_PROMOS.includes(code);
+    setPromoStatus((p) => ({ ...p, [planName]: ok ? "valid" : "invalid" }));
+  };
 
   const buildWaUrl = (baseUrl: string, message: string) => {
     try {
@@ -305,7 +319,13 @@ function LandingPage() {
             {plans.map((plan) => {
               const selectedIdx = billingIdx[plan.name] ?? 0;
               const selected = plan.billingOptions[selectedIdx] ?? plan.billingOptions[0];
-              const selectedWaMessage = (selected as { waMessage?: string }).waMessage ?? plan.waMessage;
+              const baseWaMessage = (selected as { waMessage?: string }).waMessage ?? plan.waMessage;
+              const status = promoStatus[plan.name] ?? "";
+              const promoCode = normalize(promoInput[plan.name] ?? "");
+              const promoApplied = status === "valid";
+              const selectedWaMessage = promoApplied
+                ? `${baseWaMessage} + شهر مجاني (كود الخصم: ${promoCode})`
+                : baseWaMessage;
               const waHref = buildWaUrl(settings.telegramUrl, selectedWaMessage);
               return (
               <div
@@ -395,6 +415,52 @@ function LandingPage() {
                   ))}
                 </ul>
 
+                <div className="mb-4">
+                  <label className="block text-xs font-bold text-muted-foreground mb-2 text-right">
+                    كود الخصم (اختياري)
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={promoInput[plan.name] ?? ""}
+                      onChange={(e) => {
+                        const v = e.target.value;
+                        setPromoInput((p) => ({ ...p, [plan.name]: v }));
+                        setPromoStatus((p) => ({ ...p, [plan.name]: "" }));
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          applyPromo(plan.name);
+                        }
+                      }}
+                      placeholder="أدخل كود الخصم"
+                      className="flex-1 rounded-full border border-border bg-background/40 px-4 py-2 text-sm text-right outline-none focus:border-primary"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => applyPromo(plan.name)}
+                      className={`rounded-full px-4 py-2 text-xs font-bold transition-transform hover:scale-[1.02] ${
+                        plan.highlight
+                          ? "bg-gradient-gold text-gold-foreground shadow-gold"
+                          : "bg-gradient-primary text-primary-foreground shadow-glow"
+                      }`}
+                    >
+                      تطبيق
+                    </button>
+                  </div>
+                  {status === "valid" && (
+                    <p className="mt-2 text-xs font-bold text-gold text-right">
+                      ✓ تم إضافة شهر مجاني
+                    </p>
+                  )}
+                  {status === "invalid" && (
+                    <p className="mt-2 text-xs font-bold text-destructive text-right">
+                      الكود خاطئ
+                    </p>
+                  )}
+                </div>
+
                 <a
                   href={waHref}
                   target="_blank"
@@ -406,7 +472,7 @@ function LandingPage() {
                   }`}
                 >
                   <TelegramIcon className="h-5 w-5" />
-                  تواصل معنا للاشتراك
+                  تواصل معنا للاشتراك{promoApplied ? " + شهر مجاني" : ""}
                 </a>
 
                 <p className="text-center text-xs text-muted-foreground mt-4">
