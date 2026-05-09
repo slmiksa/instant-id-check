@@ -323,7 +323,12 @@ function LandingPage() {
               const status = promoStatus[plan.name] ?? "";
               const promoCode = normalize(promoInput[plan.name] ?? "");
               const promoApplied = status === "valid";
-              const bonusLabel = plan.name === "الباقة الأساسية" ? "10 أيام مجانية" : "شهر مجاني";
+              const bonusLabel =
+                plan.name === "الباقة الأساسية"
+                  ? "10 أيام مجانية"
+                  : selected.label === "6 أشهر"
+                    ? "15 يوم مجاني"
+                    : "شهر مجاني";
               const selectedWaMessage = promoApplied
                 ? `${baseWaMessage} + ${bonusLabel} (كود الخصم: ${promoCode})`
                 : baseWaMessage;
