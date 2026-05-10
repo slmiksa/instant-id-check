@@ -168,7 +168,7 @@ function LandingPage() {
                 </a>
                 <div className="border-t border-border/50" />
                 <a
-                  href={settings.loginUrl}
+                  href="http://85.237.211.62:8080/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
@@ -251,7 +251,7 @@ function LandingPage() {
                       </a>
                       <div className="border-t border-border/50" />
                       <a
-                        href={settings.loginUrl}
+                        href="http://85.237.211.62:8080/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-between px-4 py-3 text-sm font-bold hover:bg-accent transition-colors"
